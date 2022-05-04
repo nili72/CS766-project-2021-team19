@@ -20,11 +20,11 @@ been applied to medical imaging successfully, like synthetic CT generation from 
 
 ## Project Proposal
 
-[Link to the project proposal](./assets/766_final_project.pdf)
+https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf
 
 ## Midterm Report 
 
-https://github.com/nili72/CS766-project-2022-team19/blob/0cfe872d4e5dba344d6b03de66e027a5d14839b9/cs766/mid_term_Xue%20Li_Ni%20Li.pdf
+https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_midterm_report.pdf
 
 ## Presentation video
 <p align="center">
@@ -47,23 +47,28 @@ https://github.com/balisujohn/766-final-project
 | Before May 5         | Complete project writeup and presentation          | 
 
 ## Current State of Art
+Recently, a number of studies have used deep learning and convolutional neural networks to create
+sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown
+outstanding performance in medical image segmentation and synthesis. More recently, generative
+adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT
+images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their
+variants[6-10]. However, almost all the studies got sCT from MR images, and very few studies
+show the transfer from PET images to sCT images [11]. Specifically, no research has been done to
+get sCT images from PET images in the breast tumor region which requires higher accuracy.
+In this project, we will try to use Unet and UnetR[12] model to synthesis CT images directly from
+PET images. The sCT images should be accurate enough to have lower error than sCT generated
+from current pipeline. The official code for UnetR is pytorch, and it is used for medical image
+segmentation. We will play with it first, and then try to modify it to complete the PET-to-CT image
+generation task.
 
-### ORB-SLAM2
+## Dataset and Preprocess
+The breast dataset contains 23 subjects in total, including CT images and PET images. CT images have the
+size of 192x192x47 with spacing information (3.646mm, 3.646mm, 3.27mm) while PET images have the size of 192x192x89 with spacing information (3.125mm, 3.125mm, 3.78mm).
 
+The noise of the CT images and PET images were removed firstly. Then, PET images were registered to CT images to have the same data size and spacing information. The HU value of CT images is cropped into the range of [-1000, 2000] according to the meaning of HU value. Both CT and PET images are normalized. The normalization for CT is shown as follows:
 <p align="center">
-<img width="800" src="https://raw.githubusercontent.com/cmilica/cs766project/gh-pages/assets/ORB-SLAM2.png">
+<img width="500" src="https://raw.githubusercontent.com/cmilica/cs766project/gh-pages/assets/hallway.png">
 </p>
-
-It is important to note that all of the ORB-SLAM algorithms use bundle adjustment(BA) to provide estimates of camera localization and sparse geometric reconstruction. 
-Due to the lack of depth, we won’t be describing BA in detail.
-The tracking is the first step and it works by localizing the camera with every frame and deciding when to insert a new frame. 
-The local mapping processes new keyframes and performs local BA. 
-In this steep during tracking, culling of the points is applied to keep the high-quality points. 
-The loop closing searches for the loops with every new keyframe. 
-In the original ORB-SLAM, the final step is a pose graph optimization over similarity constraints to achieve global consistency. 
-The final step of the loop closing when building a map, ORB-SLAM was built on the Essential Graph feature, which remains a part of the algorithm in all future versions. 
-The system builds a spanning tree from the initial keyframe, and each time a new keyframe is inserted, it is included in the tree linked to the keyframe that shares most point observations. 
-In a case when a keyframe is erased by culling, the system updates all the affected keyframesbags of words(BoW) place recognition module that performs loop detection and relocalization
 
 ## Approach
 
