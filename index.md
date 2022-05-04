@@ -24,7 +24,7 @@ been applied to medical imaging successfully, like synthetic CT generation from 
 
 ## Midterm Report 
 
-[Link to the midterm report](./cs766/CS766Project mid-term report-Xue Li-Ni Li.pdf.pdf)
+[Link to the midterm report](./cs766/CS766Project mid-term report-Xue Li-Ni Li.pdf)
 
 ## Presentation video
 <p align="center">
