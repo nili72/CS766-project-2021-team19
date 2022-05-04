@@ -32,8 +32,7 @@ https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd04
 </p>
 
 ## Project code repo
-
-https://github.com/balisujohn/766-final-project
+https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 
 ## Project Timeline
 
@@ -67,7 +66,7 @@ size of 192x192x47 with spacing information (3.646mm, 3.646mm, 3.27mm) while PET
 
 The noise of the CT images and PET images were removed firstly. Then, PET images were registered to CT images to have the same data size and spacing information. The HU value of CT images is cropped into the range of [-1000, 2000] according to the meaning of HU value. Both CT and PET images are normalized. The normalization for CT is shown as follows:
 <p align="center">
-<img width="500" src="https://raw.githubusercontent.com/cmilica/cs766project/gh-pages/assets/hallway.png">
+<img width="500" src="https://github.com/nili72/CS766-project-2022-team19/blob/2f891823f81c35f9379efb99ef5e7ab5e001325c/images/process-equ.png">
 </p>
 
 ## Approach
