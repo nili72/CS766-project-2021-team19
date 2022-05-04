@@ -68,11 +68,10 @@ The noise of the CT images and PET images were removed firstly. Then, PET images
 <p align="center">
 <img width="1000" src="https://github.com/nili72/CS766-project-2022-team19/blob/2f891823f81c35f9379efb99ef5e7ab5e001325c/images/process-equ.png">
 </p>
-
+The normalization for PET is simple. Just divide by 1500. Since not all the CT images have perfect back images, we cropped the imperfect back area for both CT and PET images.
 ## Approach
-
-In order to evaluate the relative performance of reinforcement learning with and without the inclusion of SLAM-derived features, 
-we initially trained an agent to complete a modified version of the MiniWorld-Hallway-v0 environment.
+A 4-layer 3D UNet model was used for the training. The input is PET images with cube size
+(64x64x32), and the ground truth is the corresponding CT images with same cube size. The network structure is shown below.
 
 <p align="center">
 <img width="500" src="https://raw.githubusercontent.com/cmilica/cs766project/gh-pages/assets/hallway.png">
