@@ -2,8 +2,8 @@
 layout: default
 ---
 # Synthetic CT generation from PET images for attenuation correction with Deep Learning methods
-CS766 2022 Spring project
-Xue Li, Ni Li
+### CS766 2022 Spring project
+### Xue Li, Ni Li
 
 ## Introduction and Motivation 
 
