@@ -39,14 +39,13 @@ https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 
 ## Project Timeline
 
-| When                 | Task                                               | 
-|:---------------------|:---------------------------------------------------|
-| Before Feb 24        | Project Proposal and the initial webpage           | 
-| Feb 25 - Mar 10      | Create DQN Miniworld benchmark                     | 
-| Mar 11- Mar 20       | Set up SLAM with Miniworld                         |
-| Mar 21- Apr 6        | Design input encoding for SLAM features into       | 
-| Apr 7 - Apr 21       | Contrast performance of DQN on Miniworld           | 
-| Before May 5         | Complete project writeup and presentation          | 
+| When                 | Task                                                                   | 
+|:---------------------|:-----------------------------------------------------------------------|
+| Before Feb 24        | Project Proposal and the initial webpage                               | 
+| Feb 25 - Mar 2       | Get familar with UNet structure and training                           |
+| Mar 2- Apr 5         | Build pipeline and train the UNet model                                | 
+| Apr 5 - Apr 21       | Tune the model to improve its performance, try other models            | 
+| Before May 5         | Summarize the evaluation and comparison, make presentation and webpage | 
 
 ## Current State of Art
 Recently, a number of studies have used deep learning and convolutional neural networks to create sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown outstanding performance in medical image segmentation and synthesis. More recently, generative adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their variants[6-10]. However, current studies focus more on MR-to-CT than PET-to-CT due to the potential problems mentioned in the introduction section, and very few studies show the transfer from PET images to sCT images [11]. Also, these studies were conducted based on the brain pelvis head-and-neck, abdomen datasets in which there is no truncation problem for both MR and CT images. This implies the challenges of generating sCT directly from PET for the breast area.
@@ -77,13 +76,13 @@ Unet and GAN-related models are the most common models in the field of sCT gener
 Three different loss functions were tried, including MAE, MSE, and perceptual loss. The first two are pixel-based while the last one is feature and style based.
 
 <p align="center">
-<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/bef3d28dc798187fb680e3edfb318430de11915d/images/UNet.png">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/cdcef48425a43193710dfcce84d00534c4df9646/images/UNet.png">
 </p>
 
 The pipeline of our study is shown in Figure 4. First, PET images were registered to CT images. And then data processing methods were applied to both PET and CT images. After that, processed PET and CT images were used for training. The vgg part is especially for perceptual loss. Pretrained VGG was used to capture the difference between sCT and CT, so that perceptual loss can be calculated to improve the model. Once the sCT was predicted, it was used for PET/CT reconstruction to get the corrected PET for later dose calculation in different tumor area. Finally, the absolute percent error between dose calculation from CT-based and sCT-based reconstructed PET was computed for final evaluation.
 
 <p align="center">
-<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/bef3d28dc798187fb680e3edfb318430de11915d/images/Pipeline.png">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/cdcef48425a43193710dfcce84d00534c4df9646/images/Pipeline.png">
 </p>
 
 ## Evaluation
