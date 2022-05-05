@@ -72,9 +72,8 @@ The noise of the CT images and PET images were removed firstly. Then, PET images
 </p>
 The normalization for PET is simple. Just divide by 1500. Since not all the CT images have perfect back images, we cropped the imperfect back area for both CT and PET images.
 ## Approach
+There are 24 cases in the breast dataset. We used 18 cases for training, 3 for validation, and 3 for testing. 8-folder cross validation was conducted to produce accurate evaluation.
 ### Model and Pipeline
-There are 24 cases in the breast dataset. We used 18 cases for training, 3 for validation, and 3 for testing. 8-folder cross validation was conducted to produce accurate evaluation .
-
 Unet and GAN-related models are the most common models in the field of sCT generation. Here, we developed a 4-layer patch-based 3D Unet model for this task as Fig.3 shows. The patch size we used for training is 64x64x32. The input is PET images with cube size (64x64x32), and the ground truth is the corresponding CT images with same cube size. 
 Three different loss functions were tried, including MAE, MSE, and perceptual loss. The first two are pixel-based while the last one is feature and style based.
 
@@ -87,6 +86,7 @@ The pipeline of our study is shown in Figure 4. First, PET images were registere
 <p align="center">
 <img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/bef3d28dc798187fb680e3edfb318430de11915d/images/Pipeline.png">
 </p>
+
 ### Evaluation
 1.  Evaluation of sCT images
 Eight-fold-cross-validation was performed to evaluate model performance for both the UNet and UNETR models. The 23 patients were randomly divided into eight groups, seven groups of three patients and one group of two cases. For each cross-validation fold, seven groups were used for training and validation, and one group was left for testing. Finally, the synthesized sCT images were generated case by case and compared with the original CT images. Three measures were utilized to evaluate the difference and similarity between CT and sCT images: mean absolute error (MAE), peak-signal-to-noise-ratio (PSNR), and normalized cross-correlation (NCC). The formulas are shown as follows.
