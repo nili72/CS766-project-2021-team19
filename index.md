@@ -41,7 +41,7 @@ https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 
 | When                 | Task                                                                   | 
 |:---------------------|:-----------------------------------------------------------------------|
-| Feb 24        | Project Proposal submission                                                   | 
+| Feb 24               | Project Proposal submission                                            | 
 | Feb 25 - Mar 2       | Get familar with UNet structure and training                           |
 | Mar 2- Apr 5         | Build pipeline and train the UNet model                                | 
 | Apr 5 - Apr 21       | Tune the model to improve its performance, try other models            | 
