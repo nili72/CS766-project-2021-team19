@@ -123,8 +123,7 @@ Cancer. 2015;15:844.
 6. Qi M, Li Y, Wu A, et al. Multi-sequence MR image-based synthetic CT generation using a generative adversarial network for head and neck MRI-only radiotherapy. Med Phys. 2020;47:1880-1894.
 7. Kazemifar S, McGuire S, Timmerman R, et al. MRI-only brain radiotherapy: Assessing the dosimetric accuracy of synthetic CT images generated using a deep learning approach. Radiother Oncol. 2019;136:56-63.
 8. Lei Y, Harms J, Wang T, et al. MRI-only based synthetic CT generation using dense cycle consistent generative adversarial networks. Med Phys. 2019;46:3565-3581.
-9. Liu Y, Lei Y, Wang Y, et al. MRI-based treatment planning for proton radiotherapy: Dosimetric validation of a deep learning-based liver synthetic CT generation method. Phys Med Biol. 2019;64:
-145015.
+9. Liu Y, Lei Y, Wang Y, et al. MRI-based treatment planning for proton radiotherapy: Dosimetric validation of a deep learning-based liver synthetic CT generation method. Phys Med Biol. 2019;64:145015.
 10. Liu Y, Lei Y, Wang Y, et al. Evaluation of a deep learning-based pelvic synthetic CT generation technique for MRI-based prostate proton treatment planning. Phys Med Biol. 2019;64: 205022.
 11. X. Dong et al., “Synthetic CT generation from non-attenuation corrected PET images for whole-body PET imaging,” Phys. Med. Biol., vol. 64, no. 21, p. 215016, Nov. 2019, doi: 10.1088/1361-6560/ab4eb7.
 12. Hatamizadeh, Ali, et al. Unetr: Transformers for 3d medical image segmentation. Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision. 2022. 
