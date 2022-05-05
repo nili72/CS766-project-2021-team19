@@ -26,16 +26,16 @@ In this project, we developed a model based on Unet to synthesis CT images direc
 
 ## Project Proposal
 
-<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf">Click here to view proposal!</a>
+<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf">link to view proposal</a>
 
 ## Midterm Report 
 
-https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_midterm_report.pdf
+<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_midterm_report.pdf">link to view mid term report</a>
 
 ## Presentation video
-https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing
+<a href="https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing">link to view presentation</a>
 ## Project code repo
-https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
+<a href="https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code">link to view code</a>
 
 ## Project Timeline
 
