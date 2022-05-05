@@ -27,10 +27,7 @@ https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd04
 https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_midterm_report.pdf
 
 ## Presentation video
-<p align="center">
-<iframe width="560" height="315" src="https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing" allowfullscreen></iframe>
-</p>
-
+https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing
 ## Project code repo
 https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 
