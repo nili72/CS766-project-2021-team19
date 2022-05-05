@@ -82,7 +82,7 @@ Three different loss functions were tried, including MAE, MSE, and perceptual lo
 The pipeline of our study is shown in Figure 4. First, PET images were registered to CT images. And then data processing methods were applied to both PET and CT images. After that, processed PET and CT images were used for training. The vgg part is especially for perceptual loss. Pretrained VGG was used to capture the difference between sCT and CT, so that perceptual loss can be calculated to improve the model. Once the sCT was predicted, it was used for PET/CT reconstruction to get the corrected PET for later dose calculation in different tumor area. Finally, the absolute percent error between dose calculation from CT-based and sCT-based reconstructed PET was computed for final evaluation.
 
 <p align="center">
-<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/cdcef48425a43193710dfcce84d00534c4df9646/images/Pipeline.png">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/bb037dbd01541b1cf866de9c70da4e87c366ba54/images/Pipeline.png">
 </p>
 
 ## Evaluation
