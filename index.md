@@ -21,6 +21,7 @@ Since we observed that PET images don’t have such missing bone and back trunca
 
 As the pipeline shows, the key to solve this problem is to get accurate sCT images with bone and back information. Recent advances in deep learning (DL) have demonstrated great success in accomplishing image processing tasks, like image transfer, converting images from one domain to anther domain. These methods have
 been applied to medical imaging successfully, like synthetic CT generation from MR images. Therefore, we want to train a DL model with breast dataset to get accurate sCT images directly from PET images which don’t have such a problem mentioned.
+In this project, we developed a model based on Unet to synthesis CT images directly from PET images. The performance of our model outperformed the current pipeline. 
 
 
 ## Project Proposal
@@ -50,18 +51,12 @@ https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 ## Current State of Art
 Recently, a number of studies have used deep learning and convolutional neural networks to create sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown outstanding performance in medical image segmentation and synthesis. More recently, generative adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their variants[6-10]. However, current studies focus more on MR-to-CT than PET-to-CT due to the potential problems mentioned in the introduction section, and very few studies show the transfer from PET images to sCT images [11]. Also, these studies were conducted based on the brain pelvis head-and-neck, abdomen datasets in which there is no truncation problem for both MR and CT images. This implies the challenges of generating sCT directly from PET for the breast area.
 <p align="center">
-<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/d719f616eda606e9999656c078863ddbcda5414c/images/MRI-CT.png">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/176c0f2fb432d20133add231240ff3a3a4fbe45d/images/MRI-CT.png">
 </p>
 
 <p align="center">
-<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/d719f616eda606e9999656c078863ddbcda5414c/images/PET-CT.png">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/176c0f2fb432d20133add231240ff3a3a4fbe45d/images/PET-CT.png">
 </p>
-In this project, we used Unet and UnetR[12] model to synthesis CT images directly from
-PET images. The sCT images should be accurate enough to have lower error than sCT generated
-from current pipeline. The official code for UnetR is pytorch, and it is used for medical image
-segmentation. We will play with it first, and then try to modify it to complete the PET-to-CT image
-generation task.
-
 
 ## Dataset and Preprocess
 The breast dataset contains 23 subjects in total, including CT images and PET images. CT images have the
@@ -115,13 +110,17 @@ The eight-fold cross validation results are shown in Fig. 6. No obvious differen
 <p align="center">
 <img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/6f07517e8ad88e586ab5479a8a4a4a220fb82d10/images/errors.png">
 </p>
-The absolute percent error for each tumor is shown in the table of Figure 7. The left image shows the annotation of different tumor sites on the reconstructed PET images, and the table contains the percent errors of dose calculation on different tumor sites, where the last column shows the percent error of conventinal PET/MR pipeline. UNet with MAE and MSE models out-perform the current pipeline (petmr) in the Liver and Blood area, but the UNet with Perceptual loss model performes worse than the baseline. Overall, UNet with MAE loss model is the best model for our study of sCT from PET on 3D breast images dataset.
+The absolute percent error for each tumor is shown in the table of Figure 7. The left image shows the annotation of different tumor sites on the reconstructed PET images, and the table contains the percent errors of dose calculation on different tumor sites, where the last column shows the percent error of conventinal PET/MR pipeline. UNet with MAE and MSE models out-perform the conventional pipeline in all the area, but the UNet with Perceptual loss model performes worse than the baseline for some areas. Overall, UNet with MAE loss model is the best model for our study of sCT from PET on 3D breast images dataset.
 <img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/effea206ad63fbc9fb9bc5381a7b229d7f9ad531/images/dose%20calc.png">
 </p>
 
 
 
 ## Conclusion and Discussion
+We developed a pipeline with a UNet model for the synthesis of CT images from PET images to overcome the problems of missing bone and back truncation exsist in MR images. We confirmed the performance of the UNet model with MAE and MSE loss models outperforms the conventional pipeline. Nevertheless, there are still some limitation of this model. The pipeline requires precise PET-CT image registration, but the ANTsPy package we adopted is not robust enough. Besides, the annotation positions are taken from CT images, which makes the mis-registration of images a bigger problem for the dose calculation at different tumor areas.
+To get rid of the image registration problem, we also tried the Cycle GAN [12] and UNetR [13] models. However, we did not have enough time to tune those models well enough to outperform the conventional pipeline. We'll keep work on the improvement of those models.
+
+
 
 
 ## References
@@ -138,11 +137,10 @@ Cancer. 2015;15:844.
 9. Liu Y, Lei Y, Wang Y, et al. MRI-based treatment planning for proton radiotherapy: Dosimetric validation of a deep learning-based liver synthetic CT generation method. Phys Med Biol. 2019;64:145015.
 10. Liu Y, Lei Y, Wang Y, et al. Evaluation of a deep learning-based pelvic synthetic CT generation technique for MRI-based prostate proton treatment planning. Phys Med Biol. 2019;64: 205022.
 11. X. Dong et al., “Synthetic CT generation from non-attenuation corrected PET images for whole-body PET imaging,” Phys. Med. Biol., vol. 64, no. 21, p. 215016, Nov. 2019, doi: 10.1088/1361-6560/ab4eb7.
-12. Hatamizadeh, Ali, et al. Unetr: Transformers for 3d medical image segmentation. Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision. 2022. 
-13. Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
-14. Multi-Atlas Labeling Beyond the Cranial Vault - Workshop and Challenge - syn3193805 - Wiki.
-15. Boulanger, M., et al. "Deep learning methods to generate synthetic CT from MRI in radiotherapy: A literature review." Physica Medica 89 (2021): 265-281.
-16. Wang, Tonghe, et al. "A review on medical imaging synthesis using deep learning and its clinical applications." Journal of applied clinical medical physics 22.1 (2021): 11-36.
+12. Zhu, Jun-Yan, et al. "Unpaired image-to-image translation using cycle-consistent adversarial networks." Proceedings of the IEEE international conference on computer vision. 2017.
+13. Hatamizadeh, Ali, et al. Unetr: Transformers for 3d medical image segmentation. Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision. 2022. 
+14. Boulanger, M., et al. "Deep learning methods to generate synthetic CT from MRI in radiotherapy: A literature review." Physica Medica 89 (2021): 265-281.
+15. Wang, Tonghe, et al. "A review on medical imaging synthesis using deep learning and its clinical applications." Journal of applied clinical medical physics 22.1 (2021): 11-36.
 
 
 
