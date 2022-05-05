@@ -16,7 +16,7 @@ Since we observed that PET images don’t have such missing bone and back trunca
 
 
 <p align="center">
-<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/d719f616eda606e9999656c078863ddbcda5414c/images/Problem.PNG">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/d719f616eda606e9999656c078863ddbcda5414c/images/Problem.png">
 </p>
 
 As the pipeline shows, the key to solve this problem is to get accurate sCT images with bone and back information. Recent advances in deep learning (DL) have demonstrated great success in accomplishing image processing tasks, like image transfer, converting images from one domain to anther domain. These methods have
