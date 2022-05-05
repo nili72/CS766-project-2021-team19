@@ -53,7 +53,7 @@ The normalization for PET is simple. Just divide by 1500. Since not all the CT i
 
 There are 24 cases in the breast dataset. We used 18 cases for training, 3 for validation, and 3 for testing. 8-folder cross validation was conducted to produce accurate evaluation.
 
-Unet and GAN-related models are the most common models in the field of sCT generation. Here, we developed a 4-layer patch-based 3D Unet model for this task as Fig.3 shows. The patch size we used for training is 64x64x32. The input is PET images with cube size (64x64x32), and the ground truth is the corresponding CT images with same cube size. 
+Unet and GAN-related models are the most common models in the field of sCT generation. Here, we developed a 4-layer patch-based 3D Unet model for this task as Fig.3 shows, and the patch size we used for training is 64x64x32. The input is PET images with cube size (64x64x32), and the ground truth is the corresponding CT images with same cube size. 
 Three different loss functions were tried, including MAE, MSE, and perceptual loss. The first two are pixel-based while the last one is feature and style based.
 
 <p align="center">
