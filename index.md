@@ -41,11 +41,11 @@ https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 
 | When                 | Task                                                                   | 
 |:---------------------|:-----------------------------------------------------------------------|
-| Before Feb 24        | Project Proposal and the initial webpage                               | 
+| Feb 24        | Project Proposal submission                                                   | 
 | Feb 25 - Mar 2       | Get familar with UNet structure and training                           |
 | Mar 2- Apr 5         | Build pipeline and train the UNet model                                | 
 | Apr 5 - Apr 21       | Tune the model to improve its performance, try other models            | 
-| Before May 5         | Summarize the evaluation and comparison, make presentation and webpage | 
+| Apr 21- May 5        | Summarize the evaluation and comparison, make presentation and webpage | 
 
 ## Current State of Art
 Recently, a number of studies have used deep learning and convolutional neural networks to create sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown outstanding performance in medical image segmentation and synthesis. More recently, generative adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their variants[6-10]. However, current studies focus more on MR-to-CT than PET-to-CT due to the potential problems mentioned in the introduction section, and very few studies show the transfer from PET images to sCT images [11]. Also, these studies were conducted based on the brain pelvis head-and-neck, abdomen datasets in which there is no truncation problem for both MR and CT images. This implies the challenges of generating sCT directly from PET for the breast area.
