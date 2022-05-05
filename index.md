@@ -28,7 +28,7 @@ https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd04
 
 ## Presentation video
 <p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2P8yhjrFa4E" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing" allowfullscreen></iframe>
 </p>
 
 ## Project code repo
@@ -46,19 +46,20 @@ https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code
 | Before May 5         | Complete project writeup and presentation          | 
 
 ## Current State of Art
-Recently, a number of studies have used deep learning and convolutional neural networks to create
-sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown
-outstanding performance in medical image segmentation and synthesis. More recently, generative
-adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT
-images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their
-variants[6-10]. However, almost all the studies got sCT from MR images, and very few studies
-show the transfer from PET images to sCT images [11]. Specifically, no research has been done to
-get sCT images from PET images in the breast tumor region which requires higher accuracy.
-In this project, we will try to use Unet and UnetR[12] model to synthesis CT images directly from
+Recently, a number of studies have used deep learning and convolutional neural networks to create sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown outstanding performance in medical image segmentation and synthesis. More recently, generative adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their variants[6-10]. However, current studies focus more on MR-to-CT than PET-to-CT due to the potential problems mentioned in the introduction section, and very few studies show the transfer from PET images to sCT images [11]. Also, these studies were conducted based on the brain pelvis head-and-neck, abdomen datasets in which there is no truncation problem for both MR and CT images. This implies the challenges of generating sCT directly from PET for the breast area.
+<p align="center">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/762a0d12f0c8c96c22adf95c333657b923e9f455/images/MRI-CT.png">
+</p>
+
+<p align="center">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/762a0d12f0c8c96c22adf95c333657b923e9f455/images/PET-CT.png">
+</p>
+In this project, we used Unet and UnetR[12] model to synthesis CT images directly from
 PET images. The sCT images should be accurate enough to have lower error than sCT generated
 from current pipeline. The official code for UnetR is pytorch, and it is used for medical image
 segmentation. We will play with it first, and then try to modify it to complete the PET-to-CT image
 generation task.
+
 
 ## Dataset and Preprocess
 The breast dataset contains 23 subjects in total, including CT images and PET images. CT images have the
@@ -101,43 +102,17 @@ the breast and FGT area, current pipeline produced better results.
 <p align="center">
 <img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/6f07517e8ad88e586ab5479a8a4a4a220fb82d10/images/errors.png">
 </p>
-### ORB-SLAM2
 
-Here is a demo video that pytorch is trying the agent with SLAM results in real-time. 
-
-<p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iari7YP6ovI" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/effea206ad63fbc9fb9bc5381a7b229d7f9ad531/images/dose%20calc.png">
 </p>
 
-Timing issue:
-
-| Settings                       | Time per action | 
-|:-------------------------------|:----------------|
-| 10frames/action​ With viewer    | 0.34s           | 
-| 10frames/action​ Without viewer | 0.33s           | 
-| 20frames/action                | 0.67s           |
-| 5frames/action                 | 0.17s           | 
 
 
-Resolution: 800x600
-
-Problems to be solved:​
-
-1) speed, SLAM module will slow down the training speed​
-
-2) unexpected loop-closure & lost track: richness of texture inside simulation environment
+## Discussion
 
 
-### PySLAM
-
-We created a set of 200 reference images using our agent trained through standard DQN in modified MiniWorld-Hallway-v0 environment. 
-We analyzed the time it took to perform SLAM on this sequence of images in pyslam
+## References
 
 
-## Future work
 
-1) Encode the slam results into DQN model input
 
-2) Improve the code performance to get faster performance
-
-3) Find appropriate parameters that mitigate the "lost of track" issue
