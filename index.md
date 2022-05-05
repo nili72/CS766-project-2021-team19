@@ -24,28 +24,6 @@ been applied to medical imaging successfully, like synthetic CT generation from 
 In this project, we developed a model based on Unet to synthesis CT images directly from PET images. The performance of our model outperformed the current pipeline. 
 
 
-## Project Proposal
-
-<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf">link to view proposal</a>
-
-## Midterm Report 
-
-<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_midterm_report.pdf">link to view mid term report</a>
-
-## Presentation video
-<a href="https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing">link to view presentation</a>
-## Project code repo
-<a href="https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code">link to view code</a>
-
-## Project Timeline
-
-| When                  | Task                                                                   | 
-|:----------------------|:-----------------------------------------------------------------------|
-| Feb 24                | Project Proposal submission                                            | 
-| Feb 25 - Mar 2        | Get familar with UNet structure and training                           |
-| Mar 2- Apr 5          | Build pipeline and train the UNet model                                | 
-| Apr 5 - Apr 21        | Tune the model to improve its performance, try other models            | 
-| Apr 21- May 5         | Summarize the evaluation and comparison, make presentation and webpage | 
 
 ## Current State of Art
 Recently, a number of studies have used deep learning and convolutional neural networks to create sCT images[1-3]. Among the many kinds of convolutional neural networks, the Unet[4] has shown outstanding performance in medical image segmentation and synthesis. More recently, generative adversarial networks (GANs)[5] have become popular in creating realistic synthetic images. sCT images of pelvic, liver, brain, and head and neck regions have been produced by GANs and their variants[6-10]. However, current studies focus more on MR-to-CT than PET-to-CT due to the potential problems mentioned in the introduction section, and very few studies show the transfer from PET images to sCT images [11]. Also, these studies were conducted based on the brain pelvis head-and-neck, abdomen datasets in which there is no truncation problem for both MR and CT images. This implies the challenges of generating sCT directly from PET for the breast area.
@@ -128,6 +106,28 @@ The absolute percent error for each tumor is shown in the table of Figure 7. The
 We developed a pipeline with a UNet model for the synthesis of CT images from PET images to overcome the problems of missing bone and back truncation exsist in MR images. We confirmed the performance of the UNet model with MAE and MSE loss models outperforms the conventional pipeline. Nevertheless, there are still some limitation of this model. The pipeline requires precise PET-CT image registration, but the ANTsPy package we adopted is not robust enough. Besides, the annotation positions are taken from CT images, which makes the mis-registration of images a bigger problem for the dose calculation at different tumor areas.
 To get rid of the image registration problem, we also tried the Cycle GAN [12] and UNetR [13] models. However, we did not have enough time to tune those models well enough to outperform the conventional pipeline. We'll keep work on the improvement of those models.
 
+## Project Proposal
+
+<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf">link to view proposal</a>
+
+## Midterm Report 
+
+<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_midterm_report.pdf">link to view mid term report</a>
+
+## Presentation video
+<a href="https://drive.google.com/drive/folders/1pvh_KKiJCi5xug-S3EHWnjHVQ9QIS3DP?usp=sharing">link to view presentation</a>
+## Project code repo
+<a href="https://github.com/nili72/CS766-project-2022-team19/tree/gh-pages/Code">link to view code</a>
+
+## Project Timeline
+
+| When                  | Task                                                                   | 
+|:----------------------|:-----------------------------------------------------------------------|
+| Feb 24                | Project Proposal submission                                            | 
+| Feb 25 - Mar 2        | Get familar with UNet structure and training                           |
+| Mar 2- Apr 5          | Build pipeline and train the UNet model                                | 
+| Apr 5 - Apr 21        | Tune the model to improve its performance, try other models            | 
+| Apr 21- May 5         | Summarize the evaluation and comparison, make presentation and webpage | 
 
 
 
