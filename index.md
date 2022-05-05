@@ -26,7 +26,7 @@ In this project, we developed a model based on Unet to synthesis CT images direc
 
 ## Project Proposal
 
-[link to proposal] (https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf)
+<a href="https://github.com/nili72/CS766-project-2022-team19/blob/8af7fd457c0f37dfafecd042d10a0d64a67d8518/Report/CS766_ProjectProposal.pdf">Click here to view proposal!</a>
 
 ## Midterm Report 
 
