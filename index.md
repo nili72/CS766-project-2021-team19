@@ -70,20 +70,22 @@ The noise of the CT images and PET images were removed firstly. Then, PET images
 </p>
 The normalization for PET is simple. Just divide by 1500. Since not all the CT images have perfect back images, we cropped the imperfect back area for both CT and PET images.
 ## Approach
-A 4-layer 3D UNet model was used for the training. The input is PET images with cube size
-(64x64x32), and the ground truth is the corresponding CT images with same cube size. The network structure is shown below.
+There are 24 cases in the breast dataset. We used 18 cases for training, 3 for validation, and 3 for testing. 8-folder cross validation was conducted to produce accurate evaluation .
+
+Unet and GAN-related models are the most common models in the field of sCT generation. Here, we developed a 4-layer patch-based 3D Unet model for this task as Fig.3 shows. The patch size we used for training is 64x64x32. The input is PET images with cube size (64x64x32), and the ground truth is the corresponding CT images with same cube size. 
+Three different loss functions were tried, including MAE, MSE, and perceptual loss. The first two are pixel-based while the last one is feature and style based.
 
 <p align="center">
-<img width="500" src="https://raw.githubusercontent.com/cmilica/cs766project/gh-pages/assets/hallway.png">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/bef3d28dc798187fb680e3edfb318430de11915d/images/UNet.png">
 </p>
 
-- Environment setting:
-- Simulation environment: gym-miniworld
-- SLAM library: 
-  - pySLAM
-  - ORB-SLAM2 + python bindings
-  - ORB-SLAM3 (did not work well)
-- Reinforcement learning library : Stable Baselines
+The pipeline of our study is shown in Figure 4. First, PET images were registered to CT images. And then data processing methods were applied to both PET and CT images. After that, processed PET and CT images were used for training. The vgg part is especially for perceptual loss. Pretrained VGG was used to capture the difference between sCT and CT, so that perceptual loss can be calculated to improve the model. Once the sCT was predicted, it was used for PET/CT reconstruction to get the corrected PET for later dose calculation in different tumor area. Finally, the absolute percent error between dose calculation from CT-based and sCT-based reconstructed PET was computed for final evaluation.
+
+<p align="center">
+<img width="800" src="https://github.com/nili72/CS766-project-2022-team19/blob/bef3d28dc798187fb680e3edfb318430de11915d/images/Pipeline.png">
+</p>
+
+
 
 ### ORB-SLAM2
 
