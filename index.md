@@ -117,6 +117,8 @@ The eight-fold cross validation results are shown in Fig. 6. No obvious differen
 <img width="800" src="./images/errors.png">
 </p>
 The absolute percent error for each tumor is shown in the table of Figure 7. The left image shows the annotation of different tumor sites on the reconstructed PET images, and the table contains the percent errors of dose calculation on different tumor sites, where the last column shows the percent error of conventinal PET/MR pipeline. UNet with MAE and MSE models out-perform the conventional pipeline in all the area, but the UNet with Perceptual loss model performes worse than the baseline for some areas. Overall, UNet with MAE loss model is the best model for our study of sCT from PET on 3D breast images dataset.
+
+<p align="center">
 <img width="800" src="./images/dose%20calc.png">
 </p>
 
